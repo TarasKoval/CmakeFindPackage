@@ -3,9 +3,12 @@ project(helloworld)
 
 add_executable(helloworld hello.cpp)
 
-find_package (LibXml2)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
+include(FindLIBWEBSOCKETS)
 
-if (LIBXML2_FOUND)
-  include_directories(${LIBXML2_INCLUDE_DIRS})
-  target_link_libraries (helloworld ${LIBXML2_LIBRARIES})
-endif (LIBXML2_FOUND)
+find_package (LIBWEBSOCKETS REQUIRED)
+
+if (LIBWEBSOCKETS_FOUND)
+  include_directories(${LIBWEBSOCKETS_INCLUDE_DIRS})
+  target_link_libraries (helloworld ${LIBWEBSOCKETS_LIBRARIES})
+endif (LIBWEBSOCKETS_FOUND)
