@@ -7,6 +7,8 @@
 #
 # This currently works probably only for Linux
 
+message("message from FindLIBWEBSOCKETS.cmake")
+
 include(FindPackageHandleStandardArgs)
 SET ( LIBWEBSOCKETS_FOUND FALSE )
 
