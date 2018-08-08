@@ -4,7 +4,6 @@ project(helloworld)
 add_executable(helloworld hello.cpp)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
-include(FindLIBUPS)
 
 find_package (LIBUPS REQUIRED)
 

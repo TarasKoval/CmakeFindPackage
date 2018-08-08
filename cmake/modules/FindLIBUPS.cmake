@@ -1,14 +1,12 @@
-message("message from FindUPS.cmake")
-
 include(FindPackageHandleStandardArgs)
 SET ( LIBUPS_FOUND FALSE )
 
 FIND_PATH ( LIBUPS_INCLUDE_DIR NAMES upsclient.h
-    HINTS /home/antares/Documents/nut/clients
+    HINTS /usr/include
 )
 
-FIND_LIBRARY ( LIBUPS_LIBRARIES NAMES libupsclient
-    HINTS /home/antares/Documents/nut/lib
+FIND_LIBRARY ( LIBUPS_LIBRARIES NAMES libupsclient.so
+    HINTS /usr/lib
 )
 
 GET_FILENAME_COMPONENT( LIBUPS_LIBRARY_DIR ${LIBUPS_LIBRARIES} PATH )
@@ -26,6 +24,10 @@ IF ( LIBUPS_FOUND )
         LIBUPS_INCLUDE_DIR
         LIBUPS_LIBRARIES
     )
+    MESSAGE(STATUS "LibUPS Found: ${LIBUPS_FOUND}")
+    MESSAGE(STATUS "LibUPS include dir: ${LIBUPS_INCLUDE_DIR}")
+    MESSAGE(STATUS "LibUPS library dir: ${LIBUPS_LIBRARY_DIR}")
+    MESSAGE(STATUS "LibUPS library dir: ${LIBUPS_LIBRARIES}")
 ENDIF ( )
 
 find_package_handle_standard_args(LIBUPS
