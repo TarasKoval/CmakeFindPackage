@@ -4,11 +4,11 @@ project(helloworld)
 add_executable(helloworld hello.cpp)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
-include(FindLIBWEBSOCKETS)
+include(FindLIBUPS)
 
-find_package (LIBWEBSOCKETS REQUIRED)
+find_package (LIBUPS REQUIRED)
 
-if (LIBWEBSOCKETS_FOUND)
-  include_directories(${LIBWEBSOCKETS_INCLUDE_DIRS})
-  target_link_libraries (helloworld ${LIBWEBSOCKETS_LIBRARIES})
-endif (LIBWEBSOCKETS_FOUND)
+if (LIBUPS_FOUND)
+  include_directories(${LIBUPS_INCLUDE_DIRS})
+  target_link_libraries (helloworld ${LIBUPS_LIBRARIES})
+endif (LIBUPS_FOUND)
